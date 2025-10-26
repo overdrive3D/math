@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\vector">
+      <UniqueIdentifier>{145f89e1-1223-4a93-940d-08a43398ff9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\math.h">
@@ -20,6 +23,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\common.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\vector\vector.h">
+      <Filter>Header Files\vector</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
