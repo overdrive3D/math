@@ -45,6 +45,9 @@
     <ClInclude Include="..\..\src\vector\fpu\vector4.h">
       <Filter>Header Files\vector\fpu</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\swizzle.h">
+      <Filter>Header Files\vector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">

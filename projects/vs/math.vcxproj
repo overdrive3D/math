@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\src\vector\fpu\vector2.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector3.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector4.h" />
+    <ClInclude Include="..\..\src\vector\swizzle.h" />
     <ClInclude Include="..\..\src\vector\vector.h" />
   </ItemGroup>
   <ItemGroup>
