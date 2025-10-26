@@ -7,6 +7,7 @@ namespace overdrive::math
     {
         static_assert(std::is_floating_point<T>::value,
             "vector requires floating-point type");
+        using bvector = bvector<4, isa::fpu>;
         template<int M, int x, int y, int z = 0, int w = 0>
         using swizzle = swizzle<T, M, isa::fpu, x, y, z, w>;
 
@@ -34,6 +35,12 @@ namespace overdrive::math
         constexpr vector& operator*=(const vector& v) noexcept;
         constexpr vector& operator/=(T s) noexcept;
         constexpr vector& operator/=(const vector& v) noexcept;
+        constexpr bvector operator==(const vector& v) const noexcept;
+        constexpr bvector operator!=(const vector& v) const noexcept;
+        constexpr bvector operator>(const vector& v) const noexcept;
+        constexpr bvector operator>=(const vector& v) const noexcept;
+        constexpr bvector operator<(const vector& v) const noexcept;
+        constexpr bvector operator<=(const vector& v) const noexcept;
         constexpr T& operator[](int i) noexcept { return v[i]; }
         constexpr T operator[](int i) const noexcept { return v[i]; }
 

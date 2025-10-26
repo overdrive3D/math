@@ -142,4 +142,40 @@ constexpr vector<T, 2, isa::fpu>& vector<T, 2, isa::fpu>::operator/=(const vecto
     y = safediv(y, v.y);
     return *this;
 }
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator==(const vector& v) const noexcept
+{
+    return {x == v.x, y == v.y};
+}
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator!=(const vector& v) const noexcept
+{
+    return {x != v.x, y != v.y};
+}
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator>(const vector& v) const noexcept
+{
+    return {x > v.x, y > v.y};
+}
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator>=(const vector& v) const noexcept
+{
+    return {x >= v.x, y >= v.y};
+}
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator<(const vector& v) const noexcept
+{
+    return {x < v.x, y < v.y};
+}
+
+template<class T>
+constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator<=(const vector& v) const noexcept
+{
+    return {x <= v.x, y <= v.y};
+}
 } // overdrive::math
