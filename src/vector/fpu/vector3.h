@@ -31,6 +31,8 @@ namespace overdrive::math
         constexpr vector& operator*=(const vector& v) noexcept;
         constexpr vector& operator/=(T s) noexcept;
         constexpr vector& operator/=(const vector& v) noexcept;
+        constexpr T& operator[](int i) noexcept { return v[i]; }
+        constexpr T operator[](int i) const noexcept { return v[i]; }
 
         union
         {
