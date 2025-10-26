@@ -48,6 +48,9 @@
     <ClInclude Include="..\..\src\vector\swizzle.h">
       <Filter>Header Files\vector</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\fpu\swizzle.h">
+      <Filter>Header Files\vector\fpu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">
@@ -61,6 +64,9 @@
     </None>
     <None Include="..\..\src\common.inl">
       <Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\src\vector\fpu\swizzle.inl">
+      <Filter>Inline Files\vector\fpu</Filter>
     </None>
   </ItemGroup>
 </Project>
