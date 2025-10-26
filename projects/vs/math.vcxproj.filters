@@ -51,6 +51,9 @@
     <ClInclude Include="..\..\src\vector\fpu\swizzle.h">
       <Filter>Header Files\vector\fpu</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\fpu\bvector.h">
+      <Filter>Header Files\vector\fpu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">
@@ -66,6 +69,9 @@
       <Filter>Inline Files</Filter>
     </None>
     <None Include="..\..\src\vector\fpu\swizzle.inl">
+      <Filter>Inline Files\vector\fpu</Filter>
+    </None>
+    <None Include="..\..\src\vector\fpu\bvector.inl">
       <Filter>Inline Files\vector\fpu</Filter>
     </None>
   </ItemGroup>

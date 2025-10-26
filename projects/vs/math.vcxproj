@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\common.h" />
     <ClInclude Include="..\..\src\math.h" />
+    <ClInclude Include="..\..\src\vector\fpu\bvector.h" />
     <ClInclude Include="..\..\src\vector\fpu\swizzle.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector2.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector3.h" />
@@ -30,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\common.inl" />
+    <None Include="..\..\src\vector\fpu\bvector.inl" />
     <None Include="..\..\src\vector\fpu\swizzle.inl" />
     <None Include="..\..\src\vector\fpu\vector2.inl" />
     <None Include="..\..\src\vector\fpu\vector3.inl" />
