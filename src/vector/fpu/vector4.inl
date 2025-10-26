@@ -14,4 +14,140 @@ template<class T>
 constexpr vector<T, 4, isa::fpu>::vector(const T v[]) noexcept:
     x(v[0]), y(v[1]), z(v[2]), w(v[3])
 {}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator-() const noexcept
+{
+    return vector<T, 4, isa::fpu>(-x, -y, -z, -w);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator+(T s) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x + s, y + s, z + s, w + s);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator+(const vector& v) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x + v.x, y + v.y, z + v.z, w + v.w);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator-(T s) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x - s, y - s, z - s, w - s);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator-(const vector& v) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x - v.x, y - v.y, z - v.z, w - v.w);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator*(T s) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x * s, y * s, z * s, w * s);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator*(const vector& v) const noexcept
+{
+    return vector<T, 4, isa::fpu>(x * v.x, y * v.y, z * v.z, w * v.w);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator/(T s) const noexcept
+{
+    s = safediv(T(1), s);
+    return vector<T, 4, isa::fpu>(x * s, y * s, z * s, w * s);
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator/(const vector& v) const noexcept
+{
+    return vector<T, 4, isa::fpu>(safediv(x, v.x), safediv(y, v.y), safediv(z, v.z), safediv(w, v.w));
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator+=(T s) noexcept
+{
+    x += s;
+    y += s;
+    z += s;
+    w += s;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator+=(const vector& v) noexcept
+{
+    x += v.x;
+    y += v.y;
+    z += v.z;
+    w += v.w;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator-=(T s) noexcept
+{
+    x -= s;
+    y -= s;
+    z -= s;
+    w -= s;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator-=(const vector& v) noexcept
+{
+    x -= v.x;
+    y -= v.y;
+    z -= v.z;
+    w -= v.w;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator*=(T s) noexcept
+{
+    x *= s;
+    y *= s;
+    z *= s;
+    w *= s;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator*=(const vector& v) noexcept
+{
+    x *= v.x;
+    y *= v.y;
+    z *= v.z;
+    w *= v.w;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator/=(T s) noexcept
+{
+    s = safediv(T(1), s);
+    x *= s;
+    y *= s;
+    z *= s;
+    w *= s;
+    return *this;
+}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>& vector<T, 4, isa::fpu>::operator/=(const vector& v) noexcept
+{
+    x = safediv(x, v.x);
+    y = safediv(y, v.y);
+    z = safediv(z, v.z);
+    w = safediv(w, v.w);
+    return *this;
+}
 } // overdrive::math

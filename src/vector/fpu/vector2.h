@@ -13,6 +13,25 @@ namespace overdrive::math
         constexpr vector(T x, T y) noexcept;
         constexpr vector(const T v[]) noexcept;
 
+        constexpr vector& operator+() const noexcept { return *this; }
+        constexpr vector operator-() const noexcept;
+        constexpr vector operator+(T s) const noexcept;
+        constexpr vector operator+(const vector& v) const noexcept;
+        constexpr vector operator-(T s) const noexcept;
+        constexpr vector operator-(const vector& v) const noexcept;
+        constexpr vector operator*(T s) const noexcept;
+        constexpr vector operator*(const vector& v) const noexcept;
+        constexpr vector operator/(T s) const noexcept;
+        constexpr vector operator/(const vector& v) const noexcept;
+        constexpr vector& operator+=(T s) noexcept;
+        constexpr vector& operator+=(const vector& v) noexcept;
+        constexpr vector& operator-=(T s) noexcept;
+        constexpr vector& operator-=(const vector& v) noexcept;
+        constexpr vector& operator*=(T s) noexcept;
+        constexpr vector& operator*=(const vector& v) noexcept;
+        constexpr vector& operator/=(T s) noexcept;
+        constexpr vector& operator/=(const vector& v) noexcept;
+
         union
         {
             struct { T x, y; };
