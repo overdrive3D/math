@@ -5,3 +5,6 @@
 
 #include "common.h"
 #include "vector/vector.h"
+#include "vector/fpu/vector2.h"
+#include "vector/fpu/vector3.h"
+#include "vector/fpu/vector4.h"

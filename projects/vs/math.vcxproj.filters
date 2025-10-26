@@ -9,12 +9,21 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Header Files\vector">
+      <UniqueIdentifier>{145f89e1-1223-4a93-940d-08a43398ff9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\vector\fpu">
+      <UniqueIdentifier>{af47a926-3a2b-4be5-b54a-c3c3ca3c6674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\vector">
-      <UniqueIdentifier>{145f89e1-1223-4a93-940d-08a43398ff9f}</UniqueIdentifier>
+    <Filter Include="Inline Files\vector">
+      <UniqueIdentifier>{aab3208a-0898-46da-b92c-410b45cf10d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files\vector\fpu">
+      <UniqueIdentifier>{3972ee4b-1af0-4cd1-bae2-03bbdebc0e5a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,5 +36,25 @@
     <ClInclude Include="..\..\src\vector\vector.h">
       <Filter>Header Files\vector</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\fpu\vector2.h">
+      <Filter>Header Files\vector\fpu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\vector\fpu\vector3.h">
+      <Filter>Header Files\vector\fpu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\vector\fpu\vector4.h">
+      <Filter>Header Files\vector\fpu</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\vector\fpu\vector2.inl">
+      <Filter>Inline Files\vector\fpu</Filter>
+    </None>
+    <None Include="..\..\src\vector\fpu\vector3.inl">
+      <Filter>Inline Files\vector\fpu</Filter>
+    </None>
+    <None Include="..\..\src\vector\fpu\vector4.inl">
+      <Filter>Inline Files\vector\fpu</Filter>
+    </None>
   </ItemGroup>
 </Project>
