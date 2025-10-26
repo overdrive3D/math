@@ -12,6 +12,7 @@ namespace overdrive::math
         constexpr vector(T s) noexcept;
         constexpr vector(T x, T y, T z = T(0), T w = T(1)) noexcept;
         constexpr vector(const T v[]) noexcept;
+        constexpr void shuffle(int a, int b, int c, int d) noexcept;
 
         constexpr vector& operator+() const noexcept { return *this; }
         constexpr vector operator-() const noexcept;
