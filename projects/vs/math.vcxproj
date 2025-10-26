@@ -27,6 +27,7 @@
     <ClInclude Include="..\..\src\vector\vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\src\common.inl" />
     <None Include="..\..\src\vector\fpu\vector2.inl" />
     <None Include="..\..\src\vector\fpu\vector3.inl" />
     <None Include="..\..\src\vector\fpu\vector4.inl" />
