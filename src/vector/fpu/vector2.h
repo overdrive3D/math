@@ -7,6 +7,8 @@ namespace overdrive::math
     {
         static_assert(std::is_floating_point<T>::value,
             "vector requires floating-point type");
+        template<int x, int y>
+        using swizzle = swizzle<T, 2, isa::fpu, x, y>;
 
         constexpr vector() noexcept = default;
         constexpr vector(T s) noexcept;
@@ -41,6 +43,19 @@ namespace overdrive::math
             struct { T r, g; };
             struct { T s, t; };
             T v[2];
+
+            swizzle<0, 0> xx;
+            swizzle<0, 1> xy;
+            swizzle<1, 0> yx;
+            swizzle<1, 1> yy;
+            swizzle<0, 0> rr;
+            swizzle<0, 1> rg;
+            swizzle<1, 0> gr;
+            swizzle<1, 1> gg;
+            swizzle<0, 0> ss;
+            swizzle<0, 1> st;
+            swizzle<1, 0> ts;
+            swizzle<1, 1> tt;
         };
     };
 } // overdrive::math
