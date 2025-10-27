@@ -14,6 +14,8 @@ namespace overdrive::math
         constexpr vector() noexcept = default;
         constexpr vector(T s) noexcept;
         constexpr vector(T x, T y, T z = T(0)) noexcept;
+        constexpr vector(T x, const vector<T, 2, isa::fpu>& v) noexcept;
+        constexpr vector(const vector<T, 2, isa::fpu>& v, T z = T(0)) noexcept;
         constexpr vector(const T v[]) noexcept;
         constexpr void shuffle(int a, int b, int c, int) noexcept;
 
