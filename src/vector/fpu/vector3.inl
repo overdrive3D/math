@@ -26,6 +26,22 @@ constexpr vector<T, 3, isa::fpu>::vector(const T v[]) noexcept:
 {}
 
 template<class T>
+constexpr T vector<T, 3, isa::fpu>::dot(const vector& v) const noexcept
+{
+    return (x * v.x) + (y * v.y) + (z * v.z);
+}
+
+template<class T>
+constexpr vector<T, 3, isa::fpu> vector<T, 3, isa::fpu>::cross(const vector& v) const noexcept
+{
+    vector<T, 3, isa::fpu> p;
+    p.x = (y * v.z) - (z * v.y);
+    p.y = (z * v.x) - (x * v.z);
+    p.z = (x * v.y) - (y * v.x);
+    return p;
+}
+
+template<class T>
 constexpr void vector<T, 3, isa::fpu>::shuffle(int a, int b, int c, int) noexcept
 {
     T t[] = {v[a], v[b], v[c]};
