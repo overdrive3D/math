@@ -11,6 +11,36 @@ constexpr vector<T, 4, isa::fpu>::vector(T x, T y, T z /* 0 */, T w /* 1 */) noe
 {}
 
 template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(const vector<T, 2, isa::fpu>& v, T z /* 0 */, T w /* 1 */) noexcept:
+    x(v.x), y(v.y), z(z), w(w)
+{}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(T x, const vector<T, 2, isa::fpu>& v, T w /* 1 */) noexcept:
+    x(x), y(v.x), z(v.y), w(w)
+{}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(T x, T y, const vector<T, 2, isa::fpu>& v) noexcept:
+    x(x), y(y), z(v.x), w(v.y)
+{}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(const vector<T, 2, isa::fpu>& v1, const vector<T, 2, isa::fpu>& v2) noexcept:
+    x(v1.x), y(v1.y), z(v2.x), w(v2.y)
+{}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(const vector<T, 3, isa::fpu>& v, T w /* 1 */) noexcept:
+    x(v.x), y(v.y), z(v.z), w(w)
+{}
+
+template<class T>
+constexpr vector<T, 4, isa::fpu>::vector(T x, const vector<T, 3, isa::fpu>& v) noexcept:
+    x(x), y(v.x), z(v.y), w(v.z)
+{}
+
+template<class T>
 constexpr vector<T, 4, isa::fpu>::vector(const T v[]) noexcept:
     x(v[0]), y(v[1]), z(v[2]), w(v[3])
 {}
