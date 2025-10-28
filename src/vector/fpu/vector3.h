@@ -26,6 +26,7 @@ namespace overdrive::math
         void normalizeEst() noexcept;
         vector normalized() const noexcept;
         vector normalizedEst() const noexcept;
+        constexpr void select(const vector& v, const boolvector& c) noexcept;
         constexpr void shuffle(int a, int b, int c, int) noexcept;
 
         constexpr vector& operator+() const noexcept { return *this; }

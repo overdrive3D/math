@@ -117,6 +117,15 @@ inline vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::normalizedEst() const noex
 }
 
 template<class T>
+constexpr void vector<T, 4, isa::fpu>::select(const vector& v, const boolvector& c) noexcept
+{
+    x = c.x ? v.x : x;
+    y = c.y ? v.y : y;
+    z = c.z ? v.z : z;
+    w = c.w ? v.w : w;
+}
+
+template<class T>
 constexpr void vector<T, 4, isa::fpu>::shuffle(int a, int b, int c, int d) noexcept
 {
     T t[] = {v[a], v[b], v[c], v[d]};
@@ -301,10 +310,8 @@ constexpr vector<bool, 4, isa::fpu> vector<T, 4, isa::fpu>::operator<=(const vec
 template<class T>
 constexpr vector<T, 4, isa::fpu> select(const vector<T, 4, isa::fpu>& v1, const vector<T, 4, isa::fpu>& v2, const vector<bool, 4, isa::fpu>& c) noexcept
 {
-    return vector<T, 4, isa::fpu>(
-        c.x ? v2.x : v1.x,
-        c.y ? v2.y : v1.y,
-        c.z ? v2.z : v1.z,
-        c.w ? v2.w : v1.w);
+    vector<T, 4, isa::fpu> v(v1);
+    v.select(v2, c);
+    return v;
 }
 } // overdrive::math
