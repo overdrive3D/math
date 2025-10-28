@@ -17,8 +17,11 @@ namespace overdrive::math
         constexpr vector(T x, const vector<T, 2, isa::fpu>& v) noexcept;
         constexpr vector(const vector<T, 2, isa::fpu>& v, T z = T(0)) noexcept;
         constexpr vector(const T v[]) noexcept;
-        constexpr T dot(const vector& v) const;
-        constexpr vector cross(const vector& v) const;
+        constexpr T dot(const vector& v) const noexcept;
+        constexpr vector cross(const vector& v) const noexcept;
+        constexpr T squareLength() const noexcept;
+        T length() const noexcept;
+        constexpr T lengthEst() const noexcept;
         constexpr void shuffle(int a, int b, int c, int) noexcept;
 
         constexpr vector& operator+() const noexcept { return *this; }

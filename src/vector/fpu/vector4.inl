@@ -62,6 +62,24 @@ constexpr vector<T, 3, isa::fpu> vector<T, 4, isa::fpu>::cross(const vector<T, 3
 }
 
 template<class T>
+constexpr T vector<T, 4, isa::fpu>::squareLength() const noexcept
+{
+    return (x * x) + (y * y) + (z * z) + (w * w);
+}
+
+template<class T>
+inline T vector<T, 4, isa::fpu>::length() const noexcept
+{
+    return sqrt<T, isa::fpu>(squareLength());
+}
+
+template<class T>
+constexpr T vector<T, 4, isa::fpu>::lengthEst() const noexcept
+{
+    return sqrtEst<T, isa::fpu>(squareLength());
+}
+
+template<class T>
 constexpr void vector<T, 4, isa::fpu>::shuffle(int a, int b, int c, int d) noexcept
 {
     T t[] = {v[a], v[b], v[c], v[d]};

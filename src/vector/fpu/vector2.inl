@@ -28,6 +28,24 @@ constexpr T vector<T, 2, isa::fpu>::skew(const vector& v) const noexcept
 }
 
 template<class T>
+constexpr T vector<T, 2, isa::fpu>::squareLength() const noexcept
+{
+    return (x * x) + (y * y);
+}
+
+template<class T>
+inline T vector<T, 2, isa::fpu>::length() const noexcept
+{
+    return sqrt<T, isa::fpu>(squareLength());
+}
+
+template<class T>
+constexpr T vector<T, 2, isa::fpu>::lengthEst() const noexcept
+{
+    return sqrtEst<T, isa::fpu>(squareLength());
+}
+
+template<class T>
 constexpr void vector<T, 2, isa::fpu>::shuffle(int a, int b, int, int) noexcept
 {
     T t[] = {v[a], v[b]};
