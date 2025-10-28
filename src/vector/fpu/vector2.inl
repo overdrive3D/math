@@ -241,4 +241,12 @@ constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator<=(const vector& 
 {
     return {x <= v.x, y <= v.y};
 }
+
+template<class T>
+constexpr vector<T, 2, isa::fpu> select(const vector<T, 2, isa::fpu>& v1, const vector<T, 2, isa::fpu>& v2, const bvector<2, isa::fpu>& c) noexcept
+{
+    return vector<T, 2, isa::fpu>(
+        c.x ? v2.x : v1.x,
+        c.y ? v2.y : v1.y);
+}
 } // overdrive::math

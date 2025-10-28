@@ -1078,6 +1078,10 @@ namespace overdrive::math
             swizzle<4, 3, 3, 3, 3> qqqq;
         };
     };
+
+    template<class T> constexpr vector<T, 4, isa::fpu> select(
+        const vector<T, 4, isa::fpu>& v1, const vector<T, 4, isa::fpu>& v2,
+        const bvector<4, isa::fpu>& c) noexcept;
 } // overdrive::math
 
 #include "vector4.inl"

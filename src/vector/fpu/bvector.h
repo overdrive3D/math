@@ -10,7 +10,11 @@ namespace overdrive::math
         constexpr bool any() const noexcept;
         constexpr bool all() const noexcept;
 
-        uint8_t mask;
+        union
+        {
+            uint8_t mask;
+            struct { uint8_t x: 1, y: 1, z: 1, w: 1; };
+        };
     };
 } // overdrive::math
 
