@@ -25,6 +25,18 @@
     <Filter Include="Inline Files\vector\fpu">
       <UniqueIdentifier>{3972ee4b-1af0-4cd1-bae2-03bbdebc0e5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\sqrt">
+      <UniqueIdentifier>{3fb234cf-acd7-4d05-83b9-79981a38248b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sqrt\fpu">
+      <UniqueIdentifier>{474fed9e-51dc-449c-be40-e14a0ef5a732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files\sqrt">
+      <UniqueIdentifier>{d68c947e-d4de-47c4-b603-1356ca70a294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files\sqrt\fpu">
+      <UniqueIdentifier>{4271743a-2b80-430f-8a91-0148495a79e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\math.h">
@@ -54,6 +66,16 @@
     <ClInclude Include="..\..\src\vector\fpu\bvector.h">
       <Filter>Header Files\vector\fpu</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\sqrt\sqrt.h">
+      <Filter>Header Files\sqrt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sqrt\fpu\sqrt.h">
+      <Filter>Header Files\sqrt\fpu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\sqrt\fpu\sqrt.inl">
+      <Filter>Inline Files\sqrt\fpu</Filter>
+    </ClInclude>
+  </ItemGroup>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">

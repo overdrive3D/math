@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\common.h" />
     <ClInclude Include="..\..\src\math.h" />
+    <ClInclude Include="..\..\src\sqrt\fpu\sqrt.h" />
+    <ClInclude Include="..\..\src\sqrt\fpu\sqrt.inl" />
+    <ClInclude Include="..\..\src\sqrt\sqrt.h" />
     <ClInclude Include="..\..\src\vector\fpu\bvector.h" />
     <ClInclude Include="..\..\src\vector\fpu\swizzle.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector2.h" />

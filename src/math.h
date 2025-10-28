@@ -5,6 +5,8 @@
 #include <type_traits>
 
 #include "common.h"
+#include "sqrt/sqrt.h"
+#include "sqrt/fpu/sqrt.h"
 #include "vector/vector.h"
 #include "vector/swizzle.h"
 #include "vector/fpu/swizzle.h"
