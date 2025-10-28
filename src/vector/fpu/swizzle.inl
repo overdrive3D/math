@@ -142,4 +142,40 @@ inline vector<T, N, isa::fpu>& swizzle<T, N, isa::fpu, x, y, z, w>::operator/=(c
 {
     return shuffle() /= v;
 }
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator==(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() == v;
+}
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator!=(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() != v;
+}
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator>(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() > v;
+}
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator>=(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() >= v;
+}
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator<(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() < v;
+}
+
+template<class T, int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::fpu> swizzle<T, N, isa::fpu, x, y, z, w>::operator<=(const vector<T, N, isa::fpu>& v) noexcept
+{
+    return shuffled() <= v;
+}
 } // overdrive::math

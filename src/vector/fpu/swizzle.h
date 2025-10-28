@@ -28,6 +28,12 @@ namespace overdrive::math
         vector<T, N, isa::fpu>& operator*=(const vector<T, N, isa::fpu>& v) noexcept;
         vector<T, N, isa::fpu>& operator/=(T s) noexcept;
         vector<T, N, isa::fpu>& operator/=(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator==(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator!=(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator>(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator>=(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator<(const vector<T, N, isa::fpu>& v) noexcept;
+        vector<bool, N, isa::fpu> operator<=(const vector<T, N, isa::fpu>& v) noexcept;
 
         T v[1];
     };
