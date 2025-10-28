@@ -207,43 +207,43 @@ constexpr vector<T, 2, isa::fpu>& vector<T, 2, isa::fpu>::operator/=(const vecto
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator==(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator==(const vector& v) const noexcept
 {
     return {x == v.x, y == v.y};
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator!=(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator!=(const vector& v) const noexcept
 {
     return {x != v.x, y != v.y};
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator>(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator>(const vector& v) const noexcept
 {
     return {x > v.x, y > v.y};
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator>=(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator>=(const vector& v) const noexcept
 {
     return {x >= v.x, y >= v.y};
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator<(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator<(const vector& v) const noexcept
 {
     return {x < v.x, y < v.y};
 }
 
 template<class T>
-constexpr bvector<2, isa::fpu> vector<T, 2, isa::fpu>::operator<=(const vector& v) const noexcept
+constexpr vector<bool, 2, isa::fpu> vector<T, 2, isa::fpu>::operator<=(const vector& v) const noexcept
 {
     return {x <= v.x, y <= v.y};
 }
 
 template<class T>
-constexpr vector<T, 2, isa::fpu> select(const vector<T, 2, isa::fpu>& v1, const vector<T, 2, isa::fpu>& v2, const bvector<2, isa::fpu>& c) noexcept
+constexpr vector<T, 2, isa::fpu> select(const vector<T, 2, isa::fpu>& v1, const vector<T, 2, isa::fpu>& v2, const vector<bool, 2, isa::fpu>& c) noexcept
 {
     return vector<T, 2, isa::fpu>(
         c.x ? v2.x : v1.x,

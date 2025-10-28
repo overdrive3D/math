@@ -1,23 +1,44 @@
 namespace overdrive::math
 {
-template<int N>
-constexpr bvector<N, isa::fpu>::bvector(bool x, bool y,
-    bool z /* false */, bool w /* false */) noexcept:
-    mask(uint8_t(x) | (uint8_t(y) << 1))
+constexpr vector<bool, 2, isa::fpu>::vector(bool x, bool y) noexcept:
+    x(x), y(y)
+{}
+
+constexpr bool vector<bool, 2, isa::fpu>::any() const noexcept
 {
-    if constexpr (N >= 3) mask |= uint8_t(z) << 2;
-    if constexpr (N >= 4) mask |= uint8_t(w) << 3;
+    return (mask & 0b11) != 0;
 }
 
-template<int N>
-constexpr bool bvector<N, isa::fpu>::any() const noexcept
+constexpr bool vector<bool, 2, isa::fpu>::all() const noexcept
 {
-    return (mask != 0);
+    return (mask & 0b11) == 0b11;
 }
 
-template<int N>
-constexpr bool bvector<N, isa::fpu>::all() const noexcept
+constexpr vector<bool, 3, isa::fpu>::vector(bool x, bool y, bool z) noexcept:
+    x(x), y(y), z(z)
+{}
+
+constexpr bool vector<bool, 3, isa::fpu>::any() const noexcept
 {
-    return mask == ((1 << N) - 1);
+    return (mask & 0b111) != 0;
+}
+
+constexpr bool vector<bool, 3, isa::fpu>::all() const noexcept
+{
+    return (mask & 0b111) == 0b111;
+}
+
+constexpr vector<bool, 4, isa::fpu>::vector(bool x, bool y, bool z, bool w) noexcept:
+    x(x), y(y), z(z), w(w)
+{}
+
+constexpr bool vector<bool, 4, isa::fpu>::any() const noexcept
+{
+    return (mask & 0b1111) != 0;
+}
+
+constexpr bool vector<bool, 4, isa::fpu>::all() const noexcept
+{
+    return (mask & 0b1111) == 0b1111;
 }
 } // overdrive::math
