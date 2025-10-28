@@ -20,6 +20,10 @@ namespace overdrive::math
         constexpr T squareLength() const noexcept;
         T length() const noexcept;
         constexpr T lengthEst() const noexcept;
+        void normalize() noexcept;
+        void normalizeEst() noexcept;
+        vector normalized() const noexcept;
+        vector normalizedEst() const noexcept;
         constexpr void shuffle(int a, int b, int, int) noexcept;
 
         constexpr vector& operator+() const noexcept { return *this; }

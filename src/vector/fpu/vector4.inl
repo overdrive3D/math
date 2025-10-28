@@ -80,6 +80,43 @@ constexpr T vector<T, 4, isa::fpu>::lengthEst() const noexcept
 }
 
 template<class T>
+inline void vector<T, 4, isa::fpu>::normalize() noexcept
+{
+    T l = T(1) / length();
+    x *= l;
+    y *= l;
+    z *= l;
+    w *= l;
+}
+
+template<class T>
+inline void vector<T, 4, isa::fpu>::normalizeEst() noexcept
+{
+    T l = squareLength();
+    l = rsqrtEst<T, isa::fpu>(l);
+    x *= l;
+    y *= l;
+    z *= l;
+    w *= l;
+}
+
+template<class T>
+inline vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::normalized() const noexcept
+{
+    vector n(x, y, z, w);
+    n.normalize();
+    return n;
+}
+
+template<class T>
+inline vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::normalizedEst() const noexcept
+{
+    vector n(x, y, z, w);
+    n.normalizeEst();
+    return n;
+}
+
+template<class T>
 constexpr void vector<T, 4, isa::fpu>::shuffle(int a, int b, int c, int d) noexcept
 {
     T t[] = {v[a], v[b], v[c], v[d]};
