@@ -136,6 +136,15 @@ constexpr void vector<T, 4, isa::fpu>::shuffle(int a, int b, int c, int d) noexc
 }
 
 template<class T>
+constexpr void vector<T, 4, isa::fpu>::store(T *p) const noexcept
+{
+    p[0] = x;
+    p[1] = y;
+    p[2] = z;
+    p[3] = w;
+}
+
+template<class T>
 constexpr vector<T, 4, isa::fpu> vector<T, 4, isa::fpu>::operator-() const noexcept
 {
     return vector<T, 4, isa::fpu>(-x, -y, -z, -w);
