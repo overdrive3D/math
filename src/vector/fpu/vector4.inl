@@ -45,6 +45,19 @@ constexpr vector<T, 4, isa::fpu>::vector(const T v[]) noexcept:
     x(v[0]), y(v[1]), z(v[2]), w(v[3])
 {}
 
+
+template<class T>
+constexpr void vector<T, 4, isa::fpu>::zero() noexcept
+{
+    x = y = z = w = T(0);
+}
+
+template<class T>
+constexpr bool vector<T, 4, isa::fpu>::isZero() const noexcept
+{
+    return (T(0) == x) & (T(0) == y) & (T(0) == z) & (T(0) == w);
+}
+
 template<class T>
 constexpr T vector<T, 4, isa::fpu>::dot(const vector& v) const noexcept
 {

@@ -26,6 +26,18 @@ constexpr vector<T, 3, isa::fpu>::vector(const T v[]) noexcept:
 {}
 
 template<class T>
+constexpr void vector<T, 3, isa::fpu>::zero() noexcept
+{
+    x = y = z = T(0);
+}
+
+template<class T>
+constexpr bool vector<T, 3, isa::fpu>::isZero() const noexcept
+{
+    return (T(0) == x) & (T(0) == y) & (T(0) == z);
+}
+
+template<class T>
 constexpr T vector<T, 3, isa::fpu>::dot(const vector& v) const noexcept
 {
     return (x * v.x) + (y * v.y) + (z * v.z);

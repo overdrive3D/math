@@ -15,6 +15,8 @@ namespace overdrive::math
         constexpr vector(T s) noexcept;
         constexpr vector(T x, T y) noexcept;
         constexpr vector(const T v[]) noexcept;
+        constexpr void zero() noexcept;
+        constexpr bool isZero() const noexcept;
         constexpr T dot(const vector& v) const noexcept;
         constexpr T skew(const vector& v) const noexcept;
         constexpr T squareLength() const noexcept;
