@@ -19,6 +19,7 @@ namespace overdrive::math
         constexpr vector(const T v[]) noexcept;
         constexpr void zero() noexcept;
         constexpr bool isZero() const noexcept;
+        constexpr bool isUnit(T eps = T(1e-6)) const noexcept;
         constexpr T dot(const vector& v) const noexcept;
         constexpr vector cross(const vector& v) const noexcept;
         constexpr T squareLength() const noexcept;

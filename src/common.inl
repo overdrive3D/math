@@ -79,4 +79,10 @@ constexpr T safediv(T x, T y) noexcept
     assert(y != T(0));
     return abs(y) > (T)1e-9 ? (x / y) : T(0);
 }
+
+template<class T>
+constexpr bool equal(T x, T y, T tolerance /* 0 */) noexcept
+{
+    return abs(x - y) <= tolerance;
+}
 } // overdrive::math

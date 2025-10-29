@@ -28,6 +28,12 @@ constexpr bool vector<T, 2, isa::fpu>::isZero() const noexcept
 }
 
 template<class T>
+constexpr bool vector<T, 2, isa::fpu>::isUnit(T eps) const noexcept
+{
+    return equal(squareLength(), T(1), eps);
+}
+
+template<class T>
 constexpr T vector<T, 2, isa::fpu>::dot(const vector& v) const noexcept
 {
     return (x * v.x) + (y * v.y);

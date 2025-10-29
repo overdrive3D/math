@@ -19,6 +19,8 @@ namespace overdrive::math
     template<class T> constexpr T round(T x) noexcept;
     template<class T> constexpr T sign(T x) noexcept;
     template<class T> constexpr T safediv(T x, T y) noexcept;
+
+    template<class T> constexpr bool equal(T x, T y, T tolerance = T(0)) noexcept;
 } // overdrive::math
 
 #include "common.inl"
