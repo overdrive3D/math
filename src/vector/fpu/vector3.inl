@@ -86,6 +86,18 @@ constexpr void vector<T, 3, isa::fpu>::saturate() noexcept
 }
 
 template<class T>
+constexpr T vector<T, 3, isa::fpu>::sum() const noexcept
+{
+    return x + y + z;
+}
+
+template<class T>
+constexpr T vector<T, 3, isa::fpu>::sumAbs() const noexcept
+{
+    return math::abs(x) + math::abs(y) + math::abs(z);
+}
+
+template<class T>
 constexpr T vector<T, 3, isa::fpu>::dot(const vector& v) const noexcept
 {
     return (x * v.x) + (y * v.y) + (z * v.z);

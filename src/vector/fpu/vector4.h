@@ -30,6 +30,8 @@ namespace overdrive::math
         constexpr void round() noexcept;
         constexpr void clamp(T lo, T hi) noexcept;
         constexpr void saturate() noexcept;
+        constexpr T sum() const noexcept;
+        constexpr T sumAbs() const noexcept;
         constexpr T dot(const vector& v) const noexcept;
         constexpr vector<T, 3, isa::fpu> cross(const vector<T, 3, isa::fpu>& v) const noexcept;
         constexpr T squareLength() const noexcept;
