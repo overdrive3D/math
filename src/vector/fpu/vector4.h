@@ -45,7 +45,8 @@ namespace overdrive::math
         constexpr void shuffle(int a, int b, int c, int d) noexcept;
         constexpr void store(T *p) const noexcept;
 
-        constexpr vector& operator+() const noexcept { return *this; }
+        constexpr vector& operator+() noexcept { return *this; }
+        constexpr const vector& operator+() const noexcept { return *this; }
         constexpr vector operator-() const noexcept;
         constexpr vector operator+(T s) const noexcept;
         constexpr vector operator+(const vector& v) const noexcept;
