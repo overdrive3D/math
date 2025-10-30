@@ -44,6 +44,20 @@ constexpr bool vector<T, 3, isa::fpu>::isUnit(T eps) const noexcept
 }
 
 template<class T>
+constexpr void vector<T, 3, isa::fpu>::clamp(T lo, T hi) noexcept
+{
+    x = math::clamp(x, lo, hi);
+    y = math::clamp(y, lo, hi);
+    z = math::clamp(z, lo, hi);
+}
+
+template<class T>
+constexpr void vector<T, 3, isa::fpu>::saturate() noexcept
+{
+    clamp(T(0), T(1));
+}
+
+template<class T>
 constexpr T vector<T, 3, isa::fpu>::dot(const vector& v) const noexcept
 {
     return (x * v.x) + (y * v.y) + (z * v.z);
