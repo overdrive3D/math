@@ -28,6 +28,18 @@ constexpr bool vector<T, 2, isa::fpu>::isZero() const noexcept
 }
 
 template<class T>
+constexpr bool vector<T, 2, isa::fpu>::isNan() const noexcept
+{
+    return math::isnan(x) || math::isnan(y);
+}
+
+template<class T>
+constexpr bool vector<T, 2, isa::fpu>::isEqual(const vector& v, T eps) const noexcept
+{
+    return math::equal(x, v.x, eps) & math::equal(y, v.y, eps);
+}
+
+template<class T>
 constexpr bool vector<T, 2, isa::fpu>::isUnit(T eps) const noexcept
 {
     return equal(squareLength(), T(1), eps);
