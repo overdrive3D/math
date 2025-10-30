@@ -34,6 +34,20 @@ constexpr bool vector<T, 2, isa::fpu>::isUnit(T eps) const noexcept
 }
 
 template<class T>
+constexpr void vector<T, 2, isa::fpu>::abs() noexcept
+{
+    x = math::abs(x);
+    y = math::abs(y);
+}
+
+template<class T>
+constexpr void vector<T, 2, isa::fpu>::round() noexcept
+{
+    x = math::round(x);
+    y = math::round(y);
+}
+
+template<class T>
 constexpr void vector<T, 2, isa::fpu>::clamp(T lo, T hi) noexcept
 {
     x = math::clamp(x, lo, hi);

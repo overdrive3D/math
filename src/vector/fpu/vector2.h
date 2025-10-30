@@ -18,6 +18,8 @@ namespace overdrive::math
         constexpr void zero() noexcept;
         constexpr bool isZero() const noexcept;
         constexpr bool isUnit(T eps = T(1e-6)) const noexcept;
+        constexpr void abs() noexcept;
+        constexpr void round() noexcept;
         constexpr void clamp(T lo, T hi) noexcept;
         constexpr void saturate() noexcept;
         constexpr T dot(const vector& v) const noexcept;

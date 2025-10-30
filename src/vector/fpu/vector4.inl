@@ -45,7 +45,6 @@ constexpr vector<T, 4, isa::fpu>::vector(const T v[]) noexcept:
     x(v[0]), y(v[1]), z(v[2]), w(v[3])
 {}
 
-
 template<class T>
 constexpr void vector<T, 4, isa::fpu>::zero() noexcept
 {
@@ -62,6 +61,24 @@ template<class T>
 constexpr bool vector<T, 4, isa::fpu>::isUnit(T eps) const noexcept
 {
     return equal(squareLength(), T(1), eps);
+}
+
+template<class T>
+constexpr void vector<T, 4, isa::fpu>::abs() noexcept
+{
+    x = math::abs(x);
+    y = math::abs(y);
+    z = math::abs(z);
+    w = math::abs(w);
+}
+
+template<class T>
+constexpr void vector<T, 4, isa::fpu>::round() noexcept
+{
+    x = math::round(x);
+    y = math::round(y);
+    z = math::round(z);
+    w = math::round(w);
 }
 
 template<class T>
