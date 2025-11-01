@@ -20,6 +20,27 @@ inline vector<float, 2, isa::sse>::vector(const vector<float, 2, isa::fpu>& v) n
     xmm(_mm_set_ps(0.f, 0.f, v.y, v.x))
 {}
 
+inline float vector<float, 2, isa::sse>::extractx() const noexcept
+{
+#ifdef OVERDRIVE_SSE4
+    int x = _mm_extract_ps(xmm, 0);
+    return *reinterpret_cast<float *>(&x);
+#else
+    return _mm_cvtss_f32(xmm);
+#endif
+}
+
+inline float vector<float, 2, isa::sse>::extracty() const noexcept
+{
+#ifdef OVERDRIVE_SSE4
+    int y = _mm_extract_ps(xmm, 1);
+    return *reinterpret_cast<float *>(&y);
+#else
+    __m128 v = _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(1, 1, 1, 1));
+    return _mm_cvtss_f32(v);
+#endif
+}
+
 inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator-() const noexcept
 {
     return _mm_sub_ps(_mm_setzero_ps(), xmm);
