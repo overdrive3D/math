@@ -114,4 +114,10 @@ inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator/=(const 
     xmm = _mm_div_ps(xmm, v.xmm);
     return *this;
 }
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator=(const vector& v) noexcept
+{
+    xmm = v.xmm;
+    return *this;
+}
 } // overdrive::math
