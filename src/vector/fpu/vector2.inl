@@ -97,6 +97,13 @@ constexpr T vector<T, 2, isa::fpu>::skew(const vector& v) const noexcept
 }
 
 template<class T>
+constexpr void vector<T, 2, isa::fpu>::mad(const vector& v1, const vector& v2) noexcept
+{
+    x = x * v1.x + v2.x;
+    y = y * v1.y + v2.y;
+}
+
+template<class T>
 constexpr T vector<T, 2, isa::fpu>::squareLength() const noexcept
 {
     return (x * x) + (y * y);

@@ -28,6 +28,7 @@ namespace overdrive::math
         constexpr T sumAbs() const noexcept;
         constexpr T dot(const vector& v) const noexcept;
         constexpr T skew(const vector& v) const noexcept;
+        constexpr void mad(const vector& v1, const vector& v2) noexcept;
         constexpr T squareLength() const noexcept;
         T length() const noexcept;
         constexpr T lengthEst() const noexcept;

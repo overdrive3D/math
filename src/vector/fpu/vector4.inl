@@ -137,6 +137,15 @@ constexpr vector<T, 3, isa::fpu> vector<T, 4, isa::fpu>::cross(const vector<T, 3
 }
 
 template<class T>
+constexpr void vector<T, 4, isa::fpu>::mad(const vector& v1, const vector& v2) noexcept
+{
+    x = x * v1.x + v2.x;
+    y = y * v1.y + v2.y;
+    z = z * v1.z + v2.z;
+    w = w * v1.w + v2.w;
+}
+
+template<class T>
 constexpr T vector<T, 4, isa::fpu>::squareLength() const noexcept
 {
     return (x * x) + (y * y) + (z * z) + (w * w);
