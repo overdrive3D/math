@@ -30,6 +30,7 @@
 #include "vector/fpu/vector3.h"
 #include "vector/fpu/vector4.h"
 #ifdef OVERDRIVE_SSE
+    #include "vector/sse/swizzle.h"
     #include "vector/sse/vector2.h"
     #include "vector/sse/vector3.h"
     #include "vector/sse/vector4.h"

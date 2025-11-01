@@ -84,6 +84,9 @@
     <ClInclude Include="..\..\src\vector\sse\vector4.h">
       <Filter>Header Files\vector\sse</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\sse\swizzle.h">
+      <Filter>Header Files\vector\sse</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\vector\sse\vector2.h">
       <Filter>Header Files\vector\sse</Filter>
     </ClInclude>
