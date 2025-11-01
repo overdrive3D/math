@@ -22,4 +22,15 @@ namespace overdrive::math
     template<> struct mask<0, 1> { constexpr static bool swizzled = false; };
     template<> struct mask<0, 1, 2> { constexpr static bool swizzled = false; };
     template<> struct mask<0, 1, 2, 3> { constexpr static bool swizzled = false; };
+
+    template<int N>
+    struct bitmask
+    {
+        constexpr static int value = 0;
+    };
+
+    template<> struct bitmask<1>{ constexpr static int value = 0b1; };
+    template<> struct bitmask<2>{ constexpr static int value = 0b11; };
+    template<> struct bitmask<3>{ constexpr static int value = 0b111; };
+    template<> struct bitmask<4>{ constexpr static int value = 0b1111; };
 } // overdrive::math
