@@ -5,6 +5,9 @@ namespace overdrive::math
     template<>
     struct alignas(16) vector<float, 2, isa::sse>
     {
+        template<int x, int y>
+        using swizzle = swizzle<float, 2, isa::sse, x, y>;
+
         vector() noexcept = default;
         vector(__m128 xmm) noexcept;
         vector(float s) noexcept;
@@ -42,6 +45,19 @@ namespace overdrive::math
             __m128 xmm;
             struct { const float x, y; };
             const float v[2];
+
+            swizzle<0, 0> xx;
+            swizzle<0, 1> xy;
+            swizzle<1, 0> yx;
+            swizzle<1, 1> yy;
+            swizzle<0, 0> rr;
+            swizzle<0, 1> rg;
+            swizzle<1, 0> gr;
+            swizzle<1, 1> gg;
+            swizzle<0, 0> ss;
+            swizzle<0, 1> st;
+            swizzle<1, 0> ts;
+            swizzle<1, 1> tt;
         };
     };
 } // overdrive::math
