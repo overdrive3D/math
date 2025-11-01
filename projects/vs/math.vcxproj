@@ -29,6 +29,9 @@
     <ClInclude Include="..\..\src\vector\fpu\vector2.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector3.h" />
     <ClInclude Include="..\..\src\vector\fpu\vector4.h" />
+    <ClInclude Include="..\..\src\vector\sse\vector2.h" />
+    <ClInclude Include="..\..\src\vector\sse\vector3.h" />
+    <ClInclude Include="..\..\src\vector\sse\vector4.h" />
     <ClInclude Include="..\..\src\vector\swizzle.h" />
     <ClInclude Include="..\..\src\vector\vector.h" />
   </ItemGroup>
@@ -39,6 +42,9 @@
     <None Include="..\..\src\vector\fpu\vector2.inl" />
     <None Include="..\..\src\vector\fpu\vector3.inl" />
     <None Include="..\..\src\vector\fpu\vector4.inl" />
+    <None Include="..\..\src\vector\sse\vector2.inl" />
+    <None Include="..\..\src\vector\sse\vector3.inl" />
+    <None Include="..\..\src\vector\sse\vector4.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

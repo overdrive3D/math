@@ -1,0 +1,22 @@
+namespace overdrive::math
+{
+inline vector<float, 2, isa::sse>::vector(__m128 xmm) noexcept:
+    xmm(xmm)
+{}
+
+inline vector<float, 2, isa::sse>::vector(float s) noexcept:
+    xmm(_mm_set_ps1(s))
+{}
+
+inline vector<float, 2, isa::sse>::vector(float x, float y) noexcept:
+    xmm(_mm_set_ps(0.f, 0.f, y, x))
+{}
+
+inline vector<float, 2, isa::sse>::vector(const float v[]) noexcept:
+    xmm(_mm_set_ps(0.f, 0.f, v[1], v[0]))
+{}
+
+inline vector<float, 2, isa::sse>::vector(const vector<float, 2, isa::fpu>& v) noexcept:
+    xmm(_mm_set_ps(0.f, 0.f, v.y, v.x))
+{}
+} // overdrive::math

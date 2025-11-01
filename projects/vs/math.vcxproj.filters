@@ -37,6 +37,12 @@
     <Filter Include="Inline Files\sqrt\fpu">
       <UniqueIdentifier>{4271743a-2b80-430f-8a91-0148495a79e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\vector\sse">
+      <UniqueIdentifier>{4e82e62b-7e21-4312-99ac-cfb65257c5e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline Files\vector\sse">
+      <UniqueIdentifier>{f91786d2-e135-4d28-8724-7dcc35f08630}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\math.h">
@@ -75,7 +81,15 @@
     <ClInclude Include="..\..\src\sqrt\fpu\sqrt.inl">
       <Filter>Inline Files\sqrt\fpu</Filter>
     </ClInclude>
-  </ItemGroup>
+    <ClInclude Include="..\..\src\vector\sse\vector4.h">
+      <Filter>Header Files\vector\sse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\vector\sse\vector2.h">
+      <Filter>Header Files\vector\sse</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\vector\sse\vector3.h">
+      <Filter>Header Files\vector\sse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">
@@ -95,6 +109,18 @@
     </None>
     <None Include="..\..\src\vector\fpu\bvector.inl">
       <Filter>Inline Files\vector\fpu</Filter>
+    </None>
+    <None Include="..\..\src\vector\sse\vector4.inl">
+      <Filter>Inline Files\vector\sse</Filter>
+    </None>
+    <None Include="..\..\src\vector\sse\swizzle.inl">
+      <Filter>Inline Files\vector\sse</Filter>
+    </None>
+    <None Include="..\..\src\vector\sse\vector2.inl">
+      <Filter>Inline Files\vector\sse</Filter>
+    </None>
+    <None Include="..\..\src\vector\sse\vector3.inl">
+      <Filter>Inline Files\vector\sse</Filter>
     </None>
   </ItemGroup>
 </Project>
