@@ -19,4 +19,99 @@ inline vector<float, 2, isa::sse>::vector(const float v[]) noexcept:
 inline vector<float, 2, isa::sse>::vector(const vector<float, 2, isa::fpu>& v) noexcept:
     xmm(_mm_set_ps(0.f, 0.f, v.y, v.x))
 {}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator-() const noexcept
+{
+    return _mm_sub_ps(_mm_setzero_ps(), xmm);
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator+(float s) const noexcept
+{
+    return _mm_add_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator+(const vector& v) const noexcept
+{
+    return _mm_add_ps(xmm, v.xmm);
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator-(float s) const noexcept
+{
+    return _mm_sub_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator-(const vector& v) const noexcept
+{
+    return _mm_sub_ps(xmm, v.xmm);
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator*(float s) const noexcept
+{
+    return _mm_mul_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator*(const vector& v) const noexcept
+{
+    return _mm_mul_ps(xmm, v.xmm);
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator/(float s) const noexcept
+{
+    assert(s != 0.f);
+    return _mm_div_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+}
+
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::operator/(const vector& v) const noexcept
+{
+    return _mm_div_ps(xmm, v.xmm);
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator+=(float s) noexcept
+{
+    xmm = _mm_add_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator+=(const vector& v) noexcept
+{
+    xmm = _mm_add_ps(xmm, v.xmm);
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator-=(float s) noexcept
+{
+    xmm = _mm_sub_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator-=(const vector& v) noexcept
+{
+    xmm = _mm_sub_ps(xmm, v.xmm);
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator*=(float s) noexcept
+{
+    xmm = _mm_mul_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator*=(const vector& v) noexcept
+{
+    xmm = _mm_mul_ps(xmm, v.xmm);
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator/=(float s) noexcept
+{
+    assert(s != 0.f);
+    xmm = _mm_div_ps(xmm, _mm_set_ps(0.f, 0.f, s, s));
+    return *this;
+}
+
+inline vector<float, 2, isa::sse>& vector<float, 2, isa::sse>::operator/=(const vector& v) noexcept
+{
+    xmm = _mm_div_ps(xmm, v.xmm);
+    return *this;
+}
 } // overdrive::math

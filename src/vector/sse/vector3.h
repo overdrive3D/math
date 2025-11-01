@@ -12,6 +12,25 @@ namespace overdrive::math
         vector(const float v[]) noexcept;
         vector(const vector<float, 3, isa::fpu>& v) noexcept;
 
+        vector& operator+() noexcept { return *this; }
+        const vector& operator+() const noexcept { return *this; }
+        vector operator-() const noexcept;
+        vector operator+(float s) const noexcept;
+        vector operator+(const vector& v) const noexcept;
+        vector operator-(float s) const noexcept;
+        vector operator-(const vector& v) const noexcept;
+        vector operator*(float s) const noexcept;
+        vector operator*(const vector& v) const noexcept;
+        vector operator/(float s) const noexcept;
+        vector operator/(const vector& v) const noexcept;
+        vector& operator+=(float s) noexcept;
+        vector& operator+=(const vector& v) noexcept;
+        vector& operator-=(float s) noexcept;
+        vector& operator-=(const vector& v) noexcept;
+        vector& operator*=(float s) noexcept;
+        vector& operator*=(const vector& v) noexcept;
+        vector& operator/=(float s) noexcept;
+        vector& operator/=(const vector& v) noexcept;
         operator __m128() const noexcept { return xmm; }
 
         union
@@ -22,3 +41,5 @@ namespace overdrive::math
         };
     };
 } // overdrive::math
+
+#include "vector3.inl"
