@@ -16,7 +16,7 @@ inline vector<float, 4, isa::sse>::vector(const float v[]) noexcept:
     xmm(_mm_loadu_ps(v))
 {}
 
-inline vector<float, 3, isa::sse>::vector(const vector<float, 2, isa::fpu>& v) noexcept:
+inline vector<float, 4, isa::sse>::vector(const vector<float, 4, isa::fpu>& v) noexcept:
     xmm(_mm_loadu_ps(v.v))
 {}
 } // overdrive::math
