@@ -20,47 +20,22 @@ inline vector<float, 4, isa::sse>::vector(const vector<float, 4, isa::fpu>& v) n
     xmm(_mm_loadu_ps(v.v))
 {}
 
-inline float vector<float, 4, isa::sse>::extractx() const noexcept
+template<int i>
+inline float vector<float, 4, isa::sse>::extract() const noexcept
 {
+    static_assert((i >= 0) && (i <= 3), "component index out of range");
 #ifdef OVERDRIVE_SSE4
-    int x = _mm_extract_ps(xmm, 0);
-    return *reinterpret_cast<float *>(&x);
+    int c = _mm_extract_ps(xmm, i);
+    return *reinterpret_cast<float *>(&c);
 #else
-    return _mm_cvtss_f32(xmm);
-#endif
-}
-
-inline float vector<float, 4, isa::sse>::extracty() const noexcept
-{
-#ifdef OVERDRIVE_SSE4
-    int y = _mm_extract_ps(xmm, 1);
-    return *reinterpret_cast<float *>(&y);
-#else
-    __m128 v = _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(1, 1, 1, 1));
-    return _mm_cvtss_f32(v);
-#endif
-}
-
-inline float vector<float, 4, isa::sse>::extractz() const noexcept
-{
-#ifdef OVERDRIVE_SSE4
-    int z = _mm_extract_ps(xmm, 2);
-    return *reinterpret_cast<float *>(&z);
-#else
-    __m128 v = _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(2, 2, 2, 2));
-    return _mm_cvtss_f32(v);
-#endif
-}
-
-inline float vector<float, 4, isa::sse>::extractw() const noexcept
-{
-#ifdef OVERDRIVE_SSE4
-    int w = _mm_extract_ps(xmm, 3);
-    return *reinterpret_cast<float *>(&w);
-#else
-    __m128 v = _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(3, 3, 3, 3));
-    return _mm_cvtss_f32(v);
-#endif
+    if constexpr (i == 0)
+        return _mm_cvtss_f32(xmm);
+    else
+    {
+        __m128 v = _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(i, i, i, i));
+        return _mm_cvtss_f32(v);
+    }
+#endif // !OVERDRIVE_SSE4
 }
 
 inline vector<float, 4, isa::sse> vector<float, 4, isa::sse>::operator-() const noexcept

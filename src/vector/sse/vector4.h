@@ -15,10 +15,7 @@ namespace overdrive::math
         vector(float x, float y, float z, float w = 1.f) noexcept;
         vector(const float v[]) noexcept;
         vector(const vector<float, 4, isa::fpu>& v) noexcept;
-        float extractx() const noexcept;
-        float extracty() const noexcept;
-        float extractz() const noexcept;
-        float extractw() const noexcept;
+        template<int i> float extract() const noexcept;
 
         vector& operator+() noexcept { return *this; }
         const vector& operator+() const noexcept { return *this; }
