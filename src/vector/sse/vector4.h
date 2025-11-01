@@ -16,6 +16,7 @@ namespace overdrive::math
         vector(const float v[]) noexcept;
         vector(const vector<float, 4, isa::fpu>& v) noexcept;
         vector dot(const vector& v) const noexcept;
+        vector<float, 3, isa::sse> cross(const vector<float, 3, isa::sse>& v) const noexcept;
         template<int i> float extract() const noexcept;
 
         vector& operator+() noexcept { return *this; }

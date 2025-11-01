@@ -36,6 +36,13 @@ inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::dot(const vector& 
 #endif // !OVERDRIVE_SSE3
 }
 
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::skew(const vector& v) const noexcept
+{
+    __m128 s = _mm_mul_ps(xmm, _mm_shuffle_ps(v.xmm, v.xmm, _MM_SHUFFLE(0, 1, 0, 1)));
+    s = _mm_sub_ss(s, _mm_shuffle_ps(s, s, _MM_SHUFFLE(1, 1, 1, 1)));
+    return _mm_shuffle_ps(s, s, _MM_SHUFFLE(0, 0, 0, 0));
+}
+
 template<int i>
 inline float vector<float, 2, isa::sse>::extract() const noexcept
 {

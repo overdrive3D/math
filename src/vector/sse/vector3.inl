@@ -39,10 +39,14 @@ inline vector<float, 3, isa::sse> vector<float, 3, isa::sse>::dot(const vector& 
     return _mm_shuffle_ps(d, d, _MM_SHUFFLE(0, 0, 0, 0));
 #endif // !OVERDRIVE_SSE3
 }
-/*
+
 inline vector<float, 3, isa::sse> vector<float, 3, isa::sse>::cross(const vector& v) const noexcept
-{
-}*/
+{   // https://fastcpp.blogspot.com/2011/04/vector-cross-product-using-sse-code.html
+    __m128 v1 = _mm_mul_ps(xmm, _mm_shuffle_ps(v.xmm, v.xmm, _MM_SHUFFLE(3, 0, 2, 1)));
+    __m128 v2 = _mm_mul_ps(v.xmm, _mm_shuffle_ps(xmm, xmm, _MM_SHUFFLE(3, 0, 2, 1)));
+    __m128 c = _mm_sub_ps(v1, v2);
+    return _mm_shuffle_ps(c, c, _MM_SHUFFLE(3, 0, 2, 1 ));
+}
 
 template<int i>
 inline float vector<float, 3, isa::sse>::extract() const noexcept
