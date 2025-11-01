@@ -20,6 +20,30 @@ inline vector<float, 3, isa::sse>::vector(const vector<float, 3, isa::fpu>& v) n
     xmm(_mm_set_ps(0.f, v.z, v.y, v.x))
 {}
 
+inline vector<float, 3, isa::sse> vector<float, 3, isa::sse>::dot(const vector& v) const noexcept
+{
+#ifdef OVERDRIVE_SSE4
+    return _mm_dp_ps(xmm, v.xmm, 0x7F);
+#elif defined(OVERDRIVE_SSE3)
+    __m128i mask = _mm_set_epi32(0, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF);
+    __m128 d = _mm_mul_ps(xmm, v.xmm);
+    d = _mm_and_ps(d, _mm_castsi128_ps(mask));
+    d = _mm_hadd_ps(d, d);
+    return _mm_hadd_ps(d, d);
+#else
+    __m128 d = _mm_mul_ps(xmm, v.xmm);
+    __m128 t = _mm_shuffle_ps(d, d, _MM_SHUFFLE(2, 1, 2, 1));
+    d = _mm_add_ss(d, t); // x = x + y
+    t = _mm_shuffle_ps(t, t, _MM_SHUFFLE(1, 1, 1, 1));
+    d = _mm_add_ss(d, t); // x = x + y + z
+    return _mm_shuffle_ps(d, d, _MM_SHUFFLE(0, 0, 0, 0));
+#endif // !OVERDRIVE_SSE3
+}
+/*
+inline vector<float, 3, isa::sse> vector<float, 3, isa::sse>::cross(const vector& v) const noexcept
+{
+}*/
+
 template<int i>
 inline float vector<float, 3, isa::sse>::extract() const noexcept
 {

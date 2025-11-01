@@ -20,6 +20,22 @@ inline vector<float, 2, isa::sse>::vector(const vector<float, 2, isa::fpu>& v) n
     xmm(_mm_set_ps(0.f, 0.f, v.y, v.x))
 {}
 
+inline vector<float, 2, isa::sse> vector<float, 2, isa::sse>::dot(const vector& v) const noexcept
+{
+#ifdef OVERDRIVE_SSE4
+    return _mm_dp_ps(xmm, v.xmm, 0x3F);
+#elif defined(OVERDRIVE_SSE3)
+    __m128 d = _mm_mul_ps(xmm, v.xmm);
+    d = _mm_hadd_ps(d, d);
+    return _mm_moveldup_ps(d);
+#else
+    __m128 d = _mm_mul_ps(xmm, v.xmm);
+    __m128 t = _mm_shuffle_ps(d, d, _MM_SHUFFLE(1, 1, 1, 1));
+    d = _mm_add_ss(d, t);
+    return _mm_shuffle_ps(d, d, _MM_SHUFFLE(0, 0, 0, 0));
+#endif // !OVERDRIVE_SSE3
+}
+
 template<int i>
 inline float vector<float, 2, isa::sse>::extract() const noexcept
 {
