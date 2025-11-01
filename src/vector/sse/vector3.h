@@ -31,6 +31,7 @@ namespace overdrive::math
         vector& operator*=(const vector& v) noexcept;
         vector& operator/=(float s) noexcept;
         vector& operator/=(const vector& v) noexcept;
+        float operator[](int i) const noexcept { return v[i]; }
         operator __m128() const noexcept { return xmm; }
 
         union
