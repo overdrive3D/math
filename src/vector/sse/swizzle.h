@@ -28,6 +28,12 @@ namespace overdrive::math
         vector<float, N, isa::sse>& operator*=(const vector<float, N, isa::sse>& v) noexcept;
         vector<float, N, isa::sse>& operator/=(float s) noexcept;
         vector<float, N, isa::sse>& operator/=(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator==(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator!=(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator>(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator>=(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator<(const vector<float, N, isa::sse>& v) noexcept;
+        vector<bool, N, isa::sse> operator<=(const vector<float, N, isa::sse>& v) noexcept;
 
         __m128 xmm;
     };

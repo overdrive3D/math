@@ -136,4 +136,40 @@ inline vector<float, N, isa::sse>& swizzle<float, N, isa::sse, x, y, z, w>::oper
 {
     return shuffle() /= v;
 }
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator==(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() == v;
+}
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator!=(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() != v;
+}
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator>(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() > v;
+}
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator>=(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() >= v;
+}
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator<(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() < v;
+}
+
+template<int N, int x, int y, int z, int w>
+inline vector<bool, N, isa::sse> swizzle<float, N, isa::sse, x, y, z, w>::operator<=(const vector<float, N, isa::sse>& v) noexcept
+{
+    return shuffled() <= v;
+}
 } // overdrive::math
