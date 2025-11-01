@@ -3,7 +3,7 @@
 namespace overdrive::math
 {
     template<>
-    struct vector<float, 4, isa::sse>
+    struct alignas(16) vector<float, 4, isa::sse>
     {
         vector() noexcept = default;
         vector(__m128 xmm) noexcept;
