@@ -17,8 +17,8 @@ namespace overdrive::math
         union
         {
             __m128 xmm;
-            struct { float x, y, z; };
-            float v[3];
+            struct { const float x, y, z; };
+            const float v[3];
         };
     };
 } // overdrive::math
