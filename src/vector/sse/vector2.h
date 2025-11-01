@@ -5,6 +5,7 @@ namespace overdrive::math
     template<>
     struct alignas(16) vector<float, 2, isa::sse>
     {
+        using boolvector = vector<bool, 2, isa::sse>;
         template<int x, int y>
         using swizzle = swizzle<float, 2, isa::sse, x, y>;
 
@@ -37,6 +38,12 @@ namespace overdrive::math
         vector& operator/=(float s) noexcept;
         vector& operator/=(const vector& v) noexcept;
         vector& operator=(const vector& v) noexcept;
+        boolvector operator==(const vector& v) const noexcept;
+        boolvector operator!=(const vector& v) const noexcept;
+        boolvector operator>(const vector& v) const noexcept;
+        boolvector operator>=(const vector& v) const noexcept;
+        boolvector operator<(const vector& v) const noexcept;
+        boolvector operator<=(const vector& v) const noexcept;
         float operator[](int i) const noexcept { return v[i]; }
         operator __m128() const noexcept { return xmm; }
 

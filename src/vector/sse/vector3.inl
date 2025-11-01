@@ -152,4 +152,34 @@ inline vector<float, 3, isa::sse>& vector<float, 3, isa::sse>::operator=(const v
     xmm = v.xmm;
     return *this;
 }
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator==(const vector& v) const noexcept
+{
+    return _mm_cmpeq_ps(xmm, v.xmm);
+}
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator!=(const vector& v) const noexcept
+{
+    return _mm_cmpneq_ps(xmm, v.xmm);
+}
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator>(const vector& v) const noexcept
+{
+    return _mm_cmpgt_ps(xmm, v.xmm);
+}
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator>=(const vector& v) const noexcept
+{
+    return _mm_cmpge_ps(xmm, v.xmm);
+}
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator<(const vector& v) const noexcept
+{
+    return _mm_cmplt_ps(xmm, v.xmm);
+}
+
+inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator<=(const vector& v) const noexcept
+{
+    return _mm_cmple_ps(xmm, v.xmm);
+}
 } // overdrive::math

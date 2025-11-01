@@ -93,6 +93,9 @@
     <ClInclude Include="..\..\src\vector\sse\vector3.h">
       <Filter>Header Files\vector\sse</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\vector\sse\bvector.h">
+      <Filter>Header Files\vector\sse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\vector\fpu\vector2.inl">
@@ -123,6 +126,9 @@
       <Filter>Inline Files\vector\sse</Filter>
     </None>
     <None Include="..\..\src\vector\sse\vector3.inl">
+      <Filter>Inline Files\vector\sse</Filter>
+    </None>
+    <None Include="..\..\src\vector\sse\bvector.inl">
       <Filter>Inline Files\vector\sse</Filter>
     </None>
   </ItemGroup>
