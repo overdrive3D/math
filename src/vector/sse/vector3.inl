@@ -168,4 +168,9 @@ inline vector<bool, 3, isa::sse> vector<float, 3, isa::sse>::operator<=(const ve
 {
     return _mm_cmple_ps(xmm, v.xmm);
 }
+
+inline vector<float, 3, isa::sse>::operator float() const noexcept
+{
+    return _mm_cvtss_f32(xmm);
+}
 } // overdrive::math

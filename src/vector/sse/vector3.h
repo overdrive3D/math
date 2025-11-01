@@ -45,6 +45,7 @@ namespace overdrive::math
         boolvector operator<=(const vector& v) const noexcept;
         float operator[](int i) const noexcept { return v[i]; }
         operator __m128() const noexcept { return xmm; }
+        operator float() const noexcept;
 
         union
         {
